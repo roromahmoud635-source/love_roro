@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy massage 10/10 ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(135deg, #240046, #9d174d, #ff477e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.card {
+    width: 90%;
+    max-width: 420px;
+    padding: 35px 24px;
+    text-align: center;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px #0004;
+    z-index: 2;
+    animation: appear 1.2s ease;
+}
+
+.date {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #ffffff25;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.heart {
+    font-size: 65px;
+    animation: beat 1s infinite;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 34px;
+    margin-bottom: 18px;
+    text-shadow: 0 0 15px #ffb3c6;
+}
+
+p {
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+button {
+    background: white;
+    color: #c9184a;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px #fff8;
+}
+
+#message {
+    display: none;
+    margin-top: 25px;
+    line-height: 2;
+    animation: appear 0.8s ease;
+    font-size: 17px;
+}
+
+.floating {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="date">✨ اليوم المميز 10/10 ✨ </div>
+
+    <div class="heart">❤️</div>
+
+    <h1>Happy massage 10/10</h1>
+
+    <p> <br>بمناسبة يوم 10/10</br> 
+    وبما انه يوم مميز ومش بنحتفل بيه غير مع الناس المميزة زيك كدا يا حبيبتي حابب اوجهلك رسالة مميزة  💖  
+    </p>   
+
+    <button onclick="showMessage()">
+        دوس هنا يا جميل 💌
+    </button>
+
+    <div id="message">
+        <p>بمناسبة اليوم المميز10/10/ حابب اقولك انك احلى واحسن حاجة حصلتلى في حياتي كلها ربنا يخليكي ليا يا حبيبتي ويجعلك من نصيبي وهفضل دايما سندك وامانك وضهرك لغايت اخر نفس فيا ويارب دايما مع بعض طول العمر بحبك..💖 
+        <br />
+        <i>موقع في حب روان ..💖 </i>
+        </p>
+        
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    const message = document.getElementById("message");
+    message.style.display = "block";
+
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.textContent = ["❤️", "💗", "💕", "✨", "💖"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        heart.className = "floating";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+    }
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.textContent = ["❤️", "💕", "💗", "✨"][
+        Math.floor(Math.random() * 4)
+    ];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 7) + "s";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 12000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
